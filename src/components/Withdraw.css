@@ -1,0 +1,299 @@
+.withdraw-page {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.withdraw-container {
+    padding: 30px 0;
+}
+
+.withdraw-header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.withdraw-header h1 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.balance-types {
+    background: white;
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 25px;
+}
+
+.balance-types h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.balance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.balance-card {
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.balance-card.active {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.balance-card.active .balance-amount {
+    color: var(--warning);
+}
+
+.balance-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+.balance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.balance-header h4 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.balance-amount {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--success);
+}
+
+.balance-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.commission {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.withdraw-form-section {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+}
+
+.withdraw-form h3 {
+    color: var(--primary);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.withdraw-form .form-group {
+    margin-bottom: 20px;
+}
+
+.withdraw-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.withdraw-form input,
+.withdraw-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.withdraw-form input:focus,
+.withdraw-form select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.calculation-preview {
+    background: var(--light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    border-left: 4px solid var(--primary);
+}
+
+.calculation-preview h4 {
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.calculation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.calc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.calc-item:last-child {
+    border-bottom: none;
+}
+
+.calc-item.total,
+.calc-item.money {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.negative {
+    color: var(--danger);
+}
+
+.positive {
+    color: var(--success);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.withdraw-history {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.withdraw-history h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--light);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.history-item:hover {
+    background: #e9ecef;
+}
+
+.history-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.type {
+    background: var(--info);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.amount {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.method {
+    background: var(--primary);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+}
+
+.date {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+.status {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status.approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+@media (max-width: 768px) {
+    .balance-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .history-info {
+        justify-content: center;
+    }
+    
+    .calculation-details {
+        font-size: 0.9rem;
+    }
+}
