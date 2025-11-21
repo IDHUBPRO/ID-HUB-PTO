@@ -54,8 +54,8 @@ const Deposit = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Calculate HQ based on amount (10 TK = 1 HQ)
-        const hqAmount = Math.floor(formData.amount / 10);
+        // Calculate HQ based on amount (10 TK = 100 HQ)
+        const hqAmount = Math.floor(formData.amount * 10);
         
         const depositData = {
             ...formData,
@@ -106,7 +106,7 @@ const Deposit = () => {
                 <div className="deposit-container">
                     <div className="deposit-header">
                         <h1>💰💎 ডিপোজিট করুন 💎💰</h1>
-                        <p>১০ টাকা = ১ HQ | সর্বনিম্ন ডিপোজিট: ১০০ টাকা (১০ HQ)</p>
+                        <p>১০ টাকা = ১০০ HQ | সর্বনিম্ন ডিপোজিট: ১০০ টাকা (১০০০ HQ)</p>
                     </div>
 
                     <div className="payment-methods">
@@ -164,7 +164,7 @@ const Deposit = () => {
                                     min="100"
                                     required
                                 />
-                                <small>সর্বনিম্ন ১০০ টাকা</small>
+                                <small>সর্বনিম্ন ১০০ টাকা (১০০০ HQ)</small>
                             </div>
 
                             <div className="form-group">
@@ -172,7 +172,7 @@ const Deposit = () => {
                                 <input
                                     type="text"
                                     id="hqAmount"
-                                    value={formData.amount ? Math.floor(formData.amount / 10) + ' HQ' : ''}
+                                    value={formData.amount ? (formData.amount * 10) + ' HQ' : ''}
                                     readOnly
                                     className="readonly-input"
                                 />
@@ -227,7 +227,7 @@ const Deposit = () => {
                             <div className="history-item">
                                 <div className="history-info">
                                     <span className="method">বিকাশ</span>
-                                    <span className="amount">500 TK → 50 HQ</span>
+                                    <span className="amount">500 TK → 5000 HQ</span>
                                     <span className="date">২০ ডিসেম্বর ২০২৩</span>
                                 </div>
                                 <span className="status approved">অনুমোদিত</span>
@@ -235,7 +235,7 @@ const Deposit = () => {
                             <div className="history-item">
                                 <div className="history-info">
                                     <span className="method">নগদ</span>
-                                    <span className="amount">1000 TK → 100 HQ</span>
+                                    <span className="amount">1000 TK → 10000 HQ</span>
                                     <span className="date">১৮ ডিসেম্বর ২০২৩</span>
                                 </div>
                                 <span className="status pending">পেন্ডিং</span>
