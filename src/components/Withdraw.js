@@ -51,7 +51,7 @@ const Withdraw = () => {
     const calculateWithdraw = (amount) => {
         const commission = (amount * balanceTypes[activeBalance].commission) / 100;
         const receivedAmount = amount - commission;
-        const receivedMoney = receivedAmount / 100; // 1 TK = 100 HQ
+        const receivedMoney = receivedAmount / 10; // 100 HQ = 10 টাকা
         return {
             commission,
             receivedAmount,
@@ -128,7 +128,7 @@ const Withdraw = () => {
                 <div className="withdraw-container">
                     <div className="withdraw-header">
                         <h1>💸 টাকা উত্তোলন করুন 💸</h1>
-                        <p>১০০ HQ = ১ টাকা | সর্বনিম্ন উত্তোলন দেখুন নিচে</p>
+                        <p>১০০ HQ = ১০ টাকা | সর্বনিম্ন উত্তোলন দেখুন নিচে</p>
                     </div>
 
                     {/* Balance Types */}
@@ -264,7 +264,7 @@ const Withdraw = () => {
                             <div className="history-item">
                                 <div className="history-info">
                                     <span className="type">র্যান্ডম টাস্ক</span>
-                                    <span className="amount">2000 HQ → ৳ 14</span>
+                                    <span className="amount">2000 HQ → ৳ ২০০</span>
                                     <span className="method">বিকাশ</span>
                                     <span className="date">১৯ ডিসেম্বর ২০২৩</span>
                                 </div>
@@ -273,7 +273,7 @@ const Withdraw = () => {
                             <div className="history-item">
                                 <div className="history-info">
                                     <span className="type">রেফারেল</span>
-                                    <span className="amount">500 HQ → ৳ 4</span>
+                                    <span className="amount">500 HQ → ৳ ৫০</span>
                                     <span className="method">নগদ</span>
                                     <span className="date">১৭ ডিসেম্বর ২০২৩</span>
                                 </div>
