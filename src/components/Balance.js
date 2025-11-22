@@ -5,44 +5,62 @@ import './Balance.css';
 const Balance = () => {
     const { currentUser } = useAuth();
 
+    // If no user is logged in, show message
+    if (!currentUser) {
+        return (
+            <div className="balance-page">
+                <div className="container">
+                    <div className="not-logged-in">
+                        <h2>দুঃখিত! আপনি লগইন করেননি</h2>
+                        <p>ব্যালেন্স দেখতে দয়া করে লগইন করুন</p>
+                        <a href="/login" className="btn btn-primary">লগইন করুন</a>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     const balanceTypes = [
         {
             name: 'র্যান্ডম টাস্ক ব্যালেন্স',
-            amount: currentUser?.balance?.random || 0,
+            amount: currentUser.balance?.random || 0,
             icon: 'fas fa-random',
             color: '#4361ee'
         },
         {
             name: 'রেগুলার টাস্ক ব্যালেন্স',
-            amount: currentUser?.balance?.regular || 0,
+            amount: currentUser.balance?.regular || 0,
             icon: 'fas fa-calendar-alt',
             color: '#4cc9f0'
         },
         {
             name: 'প্রিমিয়াম টাস্ক ব্যালেন্স',
-            amount: currentUser?.balance?.premium || 0,
+            amount: currentUser.balance?.premium || 0,
             icon: 'fas fa-crown',
             color: '#f8961e'
         },
         {
             name: 'রেফারেল ব্যালেন্স',
-            amount: currentUser?.balance?.referral || 0,
+            amount: currentUser.balance?.referral || 0,
             icon: 'fas fa-users',
             color: '#4895ef'
         },
         {
             name: 'ডিপোজিট ব্যালেন্স',
-            amount: currentUser?.balance?.deposit || 0,
+            amount: currentUser.balance?.deposit || 0,
             icon: 'fas fa-wallet',
             color: '#7209b7'
         },
         {
             name: 'মোট আয়',
-            amount: currentUser?.totalEarnings || 0,
+            amount: currentUser.totalEarnings || 0,
             icon: 'fas fa-chart-line',
             color: '#2ec4b6'
         }
     ];
+
+    const totalBalance = balanceTypes.reduce((total, balance) => total + balance.amount, 0);
+    const withdrawableBalance = balanceTypes.slice(0, 4).reduce((total, balance) => total + balance.amount, 0);
 
     return (
         <div className="balance-page">
@@ -67,9 +85,10 @@ const Balance = () => {
                 <div className="balance-container">
                     <div className="balance-header">
                         <h1>💰 আপনার সকল ব্যালেন্স 💰</h1>
-                        <p>বিভিন্ন সোর্স থেকে আপনার মোট আয় এবং ব্যালেন্স দেখুন</p>
+                        <p>স্বাগতম, {currentUser.name}! আপনার বিভিন্ন সোর্স থেকে আয়ের বিবরণ</p>
                     </div>
 
+                    {/* Balance Cards */}
                     <div className="balance-grid">
                         {balanceTypes.map((balance, index) => (
                             <div key={index} className="balance-card">
@@ -90,19 +109,15 @@ const Balance = () => {
                         <div className="summary-grid">
                             <div className="summary-item">
                                 <span className="label">মোট ব্যালেন্স:</span>
-                                <span className="value">
-                                    {balanceTypes.reduce((total, balance) => total + balance.amount, 0)} HQ
-                                </span>
+                                <span className="value">{totalBalance} HQ</span>
                             </div>
                             <div className="summary-item">
                                 <span className="label">উত্তোলনযোগ্য ব্যালেন্স:</span>
-                                <span className="value">
-                                    {balanceTypes.slice(0, 4).reduce((total, balance) => total + balance.amount, 0)} HQ
-                                </span>
+                                <span className="value">{withdrawableBalance} HQ</span>
                             </div>
                             <div className="summary-item">
                                 <span className="label">ডিপোজিট ব্যালেন্স:</span>
-                                <span className="value">{currentUser?.balance?.deposit || 0} HQ</span>
+                                <span className="value">{currentUser.balance?.deposit || 0} HQ</span>
                             </div>
                         </div>
                     </div>
